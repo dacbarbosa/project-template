@@ -1,0 +1,144 @@
+
+\usepackage{pdflscape}
+\usepackage[onehalfspacing]{setspace}
+%\usepackage{aer}
+ 
+
+\newtheorem{assumption}{Assumption}
+\newtheorem{prediction}{Prediction} 
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}{Case}
+\newtheorem{claim}{Claim}
+\newtheorem{conclusion}{Conclusion}
+\newtheorem{condition}{Condition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{criterion}{Criterion}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{lemma}{Lemma}
+\newtheorem{notation}{Notation}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{solution}{Solution}
+\newtheorem{summary}{Summary}
+\usepackage{verbatim}
+%\usepackage{ntheorem}
+\newtheorem{hyp}{Hypothesis}
+ \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.}}{\ \rule{0.5em}{0.5em}}
+ 
+ \PassOptionsToPackage{hyphens}{url}
+ % \usepackage{hyperref}
+
+%\AtBeginEnvironment{threeparttable}{\doublespacing}
+
+%\usepackage[compact]{titlesec}
+\usepackage{titlesec}
+
+% \titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+
+\titlespacing{\section}{0pt}{1.5ex}{1ex}
+\titlespacing{\subsection}{0pt}{0.75ex}{0.5ex}
+\titlespacing{\subsubsection}{0pt}{0.75ex}{0.25ex}
+ 
+ % \titlespacing{\paragraph}{0pt}{0.75ex}{0.25ex}
+ \titlespacing*{\paragraph} {0pt}{1.25ex plus 1ex minus .2ex}{1em}
+
+\setlength{\parindent}{1.2em}
+% \hypersetup{
+%     colorlinks, 
+%     linkcolor={red!50!black}, 
+%     citecolor={blue!50!black}, 
+%     urlcolor={blue!80!black}
+% }
+
+
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbÃŒndig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbÃŒndig mit Breitenangabe
+
+%\usepackage[detect-all]{siunitx} 			
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}	
+ 
+%%%%%%%%%%%%%%%%%%%%
+%% Referee Tables %%
+%%%%%%%%%%%%%%%%%%%%
+ 
+\newcommand\startrefereetables{%
+    \makeatletter
+       \setcounter{table}{0}
+   \setcounter{table}{0}\global\def\thetable{R\arabic{table}}%
+    \makeatother}
+
+%%%%%%%%%%%%%%%%%%%%%
+%% Appendix Tables %%
+%%%%%%%%%%%%%%%%%%%%%
+
+% \newcommand\startappendixtables{%
+%     \makeatletter
+%        \setcounter{table}{0}
+%    \setcounter{table}{0}\global\def\thetable{A\arabic{table}}%
+%     \makeatother}
+%  
+%  \newcommand\startappendixfigures{%
+%     \makeatletter
+%        \setcounter{figure}{0}
+%    \setcounter{figure}{0}\global\def\thefigure{A\arabic{figure}}%
+%     \makeatother}
+%  
+%  
+% \newcommand\startappendixtablesB{%
+%     \makeatletter
+%        \setcounter{table}{0}
+%    \setcounter{table}{0}\global\def\thetable{B\arabic{table}}%
+%     \makeatother}
+%  
+%  \newcommand\startappendixfiguresB{%
+%     \makeatletter
+%        \setcounter{figure}{0}
+%    \setcounter{figure}{0}\global\def\thefigure{B\arabic{figure}}%
+%     \makeatother}
+% 
+%  
+% \newcommand\startappendixtablesC{%
+%     \makeatletter
+%        \setcounter{table}{0}
+%    \setcounter{table}{0}\global\def\thetable{C\arabic{table}}%
+%     \makeatother}
+%  
+%  \newcommand\startappendixfiguresC{%
+%     \makeatletter
+%        \setcounter{figure}{0}
+%    \setcounter{figure}{0}\global\def\thefigure{C\arabic{figure}}%
+%     \makeatother}
+% 
+%   
+\usepackage{footmisc}
+\renewcommand{\footnotelayout}{\setstretch{1.05}}
+
+%%%%%%%%%%%%%%%%%%
+%% Bibliography %%
+%%%%%%%%%%%%%%%%%%
+
+\let\oldthebibliography\thebibliography
+\let\endoldthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{
+  \begin{oldthebibliography}{#1}
+    \setlength{\itemsep}{0.11em}
+    \setlength{\parskip}{0em}
+}
+{
+  \end{oldthebibliography}
+}
+ 
+
+
+\usepackage{xurl}
+
+ 
+\setstretch{1.1}
+

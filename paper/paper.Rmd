@@ -1,0 +1,114 @@
+---
+documentclass: article
+fontsize: 12pt
+geometry:
+  - margin=1.22in
+  - nohead
+fontfamily: mathpazo
+fontfamilyoptions:
+  - sc
+
+title: "Title"
+subtitle: "Subtitle"
+author: 
+  - Coauthor A
+  - Coauthor B
+  - Coauthor C
+date: "`r Sys.Date()`"
+
+abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+# Add Keywords
+# Add Jelcodes
+
+thanks: "Person A, B and C + Grant X"
+
+
+# "hyperref"
+# "xcolor, colortbl"
+# "flushleft]{threeparttable"
+# % "table]{xcolor"% http://ctan.org/pkg/xcolor
+# "doublespacing]{setspace"
+# %"endfloat"
+
+output: 
+  bookdown::pdf_book:
+    extra_dependencies: [
+        "amsmath","amsfonts","amssymb","graphicx",
+        "url","rotating","tabu","bbm","bbold",
+        "pdflscape","pdfpages","comment","rotating",
+        "booktabs","caption","fixltx2e","subfiles",
+        "graphics","graphicx","longtable"]
+    # citation_package: biblatex
+    pandoc_args:
+    # - --lua-filter=multi-refs.lua
+      - --lua-filter=multiple-bibliographies.lua
+    keep_tex: true
+    number_sections: true
+    toc: false
+    # includes:
+    #   in_header: preamble.tex
+      
+# citeproc: false
+bibliography_main: ../references/references_sec_main.bib
+bibliography_appendix: ../references/references_sec_appendix.bib
+csl: ../references/chicago-author-date.csl
+link-citations: true
+linkcolor: blue
+
+# bibliography_main: [ref_biblatex.bib]
+# bibliography_appendix: [ref_biblatex_appendix.bib]
+# bibliography_main: [references.bib]
+# bibliography_appendix: [references_appendix.bib]
+
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+\newpage
+
+# Introduction {#intro}
+
+According to @fajgelbaum_trade_2022, trade is cool!
+
+@card_design-based_2022 lets see!
+
+
+# Results {#results}
+
+Introduction is in section \@ref(intro)
+
+# Conclusion {#conclusion}
+
+# References {-}
+
+<div id="refs_main"></div>
+
+<!-- <div class="multi-refs"></div> -->
+
+
+\newpage
+
+# (APPENDIX) Appendix {-}
+
+# Appendix I {#app_a}
+
+@card_design-based_2022 says that empirical econ is cool!   
+
+This will be Appendix A.
+
+# Appendix II {#app_b}
+
+This will be Appendix B.    
+
+# References Appendix {-}
+
+<div id="refs_appendix"></div>
+
+<!-- \printbibliography -->
+
+<!-- <div id="refs"></div> -->
+
