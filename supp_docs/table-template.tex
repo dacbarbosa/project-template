@@ -1,0 +1,55 @@
+\begin{table}[!h]
+	\caption{Effects of body worn cameras on accuracy of police reporting and citizen-police interactions}\label{tab:main}
+	\centering
+	\scalebox{0.62}{
+		\begin{tabular}{@{\extracolsep{4pt}}L{10.8cm}C{1.6cm}C{1.6cm}C{1.6cm}C{1.6cm}C{1.6cm}C{1.6cm}C{1.6cm}@{}}
+			\hline
+			\\[-7pt]
+			&&\multicolumn{2}{c}{Reporting Behaviour}&\multicolumn{4}{c}{Interaction Margins}\\
+			\\[-7pt]
+			\cline{3-4}\cline{5-8}
+			\\[-7pt]
+			&\small Dispatch Recorded&\small Police Report &\small Victims in report&\small Negative Interaction Index&\small Contempt, Resistance and/or Disobedience &\small Use-of-force  &\small Handcuff and/or Arrest\\
+			\\[-5pt]
+			& (1) & (2) & (3) & (4) & (5) & (6) & (7)\\
+			\\[-7pt]
+			\hline
+			\\[-7pt]
+			
+			\multicolumn{6}{p{15cm}}{\textbf{Panel A.} Main Effects} \\
+			\\[-7pt]
+			
+			\input{new-tables/fragment-main-result-event-level.tex}\\
+			
+			\multicolumn{6}{p{15cm}}{\textbf{Panel B.} Heterogeneity by Ex-ante Event Risk Assessment} \\
+			\\[-7pt]
+			
+			\input{new-tables/fragment-het-risk-event-level.tex}\\
+			\input{new-tables/fragment-het-risk-event-level-coeftest-onesided.tex}\\
+			
+			\multicolumn{6}{p{15cm}}{\textbf{Panel C.} Heterogeneity by Treatment Intensity} \\
+			\\[-7pt]
+			
+			
+			\input{new-tables/fragment-het-cam-intensity-event-level.tex}\\
+			\input{new-tables/fragment-het-cam-intensity-event-level-coeftest-onesided.tex}\\
+			
+			\multicolumn{6}{p{15cm}}{\textbf{Panel D.} Heterogeneity by Officer Rank} \\
+			\\[-7pt]\\
+			
+			\input{new-tables/fragment-camhold-rank-spec.tex}\\
+			
+			%			\input{new-tables/fragment-camhold-rank-spec-add-info.tex}\\
+			
+			
+			\hline
+			\\[-7pt]
+			\input{new-tables/fragment-main-event-level-add-info.tex} 
+			\\[-7pt]
+			\hline
+			\\[-7pt]
+			\multicolumn{8}{p{25.8cm}}{\footnotesize \emph{Notes:} Table presents results on the impact of a body worn camera being present at a police event. Panel A presents the main results capturing the average intent-to-treat effect. Panel B explores heterogeneity by the ex-ante risk level of the events, which characterizes an event as low risk if it has no weapons on the scene, if there are no injuries, if the suspect is not on site and if there is no material risk of general unrest. Panel C investigates treatment intensity heterogeneity, given by the number of officers wearing a camera in events. Panel D explores rank heterogeneity of who is wearing the camera. The dependent variables are \lq\lq Dispatch recorded\rq\rq\ indicating that the dispatch was partially or fully recorded using the body worn camera and hence represents the treatment being delivered. \lq\lq Police Report\rq\rq\ and \lq\lq Victims in report\rq\rq\ capture the extent to which officers formally report events, on which basis the Civil Police would proceed investigations.  Interaction Margins comprises: (i) \lq\lq Negative Interaction Index\rq\rq\ is the standardized inverse-covariance weighted average of the three indicators in the group; (ii) \lq\lq Contempt, Resist and/or Disobey \rq\rq\ is an indicator if charges of contempt, disobedience or resistance towards the police were registered; (iii) \lq\lq use-of-force \rq\rq\ is an indicator if there was any deployment of physical, non-lethal (mechanical) or lethal force by the police, not considering use of handcuff or arrest; (iv) \lq\lq Handcuff and/or Arrest\rq\rq is an indicator if handcuffs were used or if any arrests made. All dependent variables are multiplied by 100. Specifications include police precinct-by-week, day of the week, number of officers and stratification bins fixed effects. Shifts without camera are excluded from the regression. Standard errors are clustered at the precinct-by-day level. *** p$<$0.01; ** p$<$0.05; * p$<$0.1.}
+	\end{tabular}}
+\end{table}
+
+\clearpage

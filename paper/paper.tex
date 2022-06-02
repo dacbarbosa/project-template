@@ -144,12 +144,130 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 According to Fajgelbaum and Redding (\protect\hyperlink{ref-fajgelbaum_trade_2022}{2022}), trade is cool!
 
-Card (\protect\hyperlink{ref-card_design-based_2022}{2022}) lets see!
+We are going to cite Card (\protect\hyperlink{ref-card_design-based_2022}{2022}) to see if references are properly
+working and to confirm that empirical economics is cool!
+
+Estimation is presented in section \ref{results} and section \ref{conclusion}
+concludes.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-Introduction is in section \ref{intro}
+Principles:
+
+\begin{itemize}
+\tightlist
+\item
+  Every estimated model should produce results in data.frame format (this allows
+  us to import other languages results into R and produce tables here)
+\item
+  If we have panels, the layout could be defined through the linesep argument
+  (ex: if the panel titling comes right below the first coefficient and std. error,
+  it should be included in the second argument of the linesep vector)
+\item
+  We need to add support for:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Caption
+  \item
+    Label
+  \item
+    Scaling Table Size/Width
+  \item
+    Orientation and Sizing of Each Column
+  \item
+    Dependent Variable/Model: Grouping
+  \item
+    Dependent Variable/Model: Names (for each column)
+  \item
+    Column Numbers
+  \end{itemize}
+\end{itemize}
+
+We are going to give an example using trade data from the fixest package.
+
+\begin{longtable}[]{@{}rr@{}}
+\toprule()
+x & y \\
+\midrule()
+\endhead
+1 & 11 \\
+2 & 12 \\
+3 & 13 \\
+4 & 14 \\
+5 & 15 \\
+6 & 16 \\
+7 & 17 \\
+8 & 18 \\
+9 & 19 \\
+10 & 20 \\
+\bottomrule()
+\end{longtable}
+
+\begin{verbatim}
+## Warning in kableExtra::kable_styling(.): Please specify format in kable. kableExtra can customize
+## either HTML or LaTeX outputs. See https://haozhu233.github.io/kableExtra/ for details.
+\end{verbatim}
+
+\begin{longtable}[]{@{}rr@{}}
+\toprule()
+x & y \\
+\midrule()
+\endhead
+1 & 11 \\
+2 & 12 \\
+3 & 13 \\
+4 & 14 \\
+5 & 15 \\
+6 & 16 \\
+7 & 17 \\
+8 & 18 \\
+9 & 19 \\
+10 & 20 \\
+\bottomrule()
+\end{longtable}
+
+\begin{tabular}{rrrrl}
+\toprule
+Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
+\midrule
+5.1 & 3.5 & 1.4 & 0.2 & setosa\\
+4.9 & 3.0 & 1.4 & 0.2 & setosa\\
+4.7 & 3.2 & 1.3 & 0.2 & setosa\\
+4.6 & 3.1 & 1.5 & 0.2 & setosa\\
+5.0 & 3.6 & 1.4 & 0.2 & setosa\\
+\addlinespace
+5.4 & 3.9 & 1.7 & 0.4 & setosa\\
+4.6 & 3.4 & 1.4 & 0.3 & setosa\\
+5.0 & 3.4 & 1.5 & 0.2 & setosa\\
+4.4 & 2.9 & 1.4 & 0.2 & setosa\\
+4.9 & 3.1 & 1.5 & 0.1 & setosa\\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{lllll}
+\toprule
+term & Model 1 & Model 2 & Model 3 & Model 4\\
+\midrule
+Log(Dist) & -1.029*** & -1.029*** & -1.226*** & -1.518***\\
+ & (0.158) & (0.158) & (0.204) & (0.128)\\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{lllll}
+\toprule
+term & Model 1 & Model 2 & Model 3 & Model 4\\
+\midrule
+Log(Dist) & -1.029*** & -1.029*** & -1.226*** & -1.518***\\
+ & (0.158) & (0.158) & (0.204) & (0.128)\\
+\textbf{Panel A.} Panel A \\
+  \\[-7pt]
+Log(Dist) & -1.029*** & -1.029*** & -1.226*** & -1.518***\\
+ & (0.158) & (0.158) & (0.204) & (0.128)\\
+\bottomrule
+\end{tabular}
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}

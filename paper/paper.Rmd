@@ -74,20 +74,123 @@ knitr::opts_chunk$set(echo = TRUE)
 
 According to @fajgelbaum_trade_2022, trade is cool!
 
-@card_design-based_2022 lets see!
+We are going to cite @card_design-based_2022 to see if references are properly 
+working and to confirm that empirical economics is cool!
 
+Estimation is presented in section \@ref(results) and section \@ref(conclusion)
+concludes.
 
 # Results {#results}
 
-Introduction is in section \@ref(intro)
+Principles:
+
+- Every estimated model should produce results in data.frame format (this allows
+us to import other languages results into R and produce tables here)
+- If we have panels, the layout could be defined through the linesep argument 
+(ex: if the panel titling comes right below the first coefficient and std. error,
+it should be included in the second argument of the linesep vector)
+- We need to add support for:
+  - Caption
+  - Label
+  - Scaling Table Size/Width
+  - Orientation and Sizing of Each Column
+  - Dependent Variable/Model: Grouping
+  - Dependent Variable/Model: Names (for each column)
+  - Column Numbers
+
+We are going to give an example using trade data from the fixest package.
+
+```{r,echo=FALSE}
+# data(trade)
+# 
+# gravity_pois = fepois(Euros ~ log(dist_km) | Origin + Destination + Product + Year, trade)
+# 
+# print(gravity_pois)
+
+```
+
+```{r,echo=FALSE}
+# res_multi = fepois(Euros ~ log(dist_km) | csw0(Year, Destination, Origin), trade,
+#                    cluster = ~Origin+Destination)
+# 
+# modelsummary(as.list(res_multi),output = "markdown")
+
+```
+
+```{r,echo=FALSE}
+df <- data.frame(x = 1:10, y = 11:20)
+
+kable(df, format = "markdown", table.attr = "style='width:30%;'")
+
+kable(df, format = "markdown", table.attr = "style='width:30%;'") %>% 
+  kableExtra::kable_styling()
+```
+
+```{r,echo=FALSE}
+iris3 <- head(iris, 10)
+knitr::kable(iris3, format = "latex", booktabs = TRUE)
+```
+
+```{r,echo=FALSE}
+data(trade)
+
+## Inner Part of the Table
+
+res = fepois(Euros ~ log(dist_km) | csw0(Year, Destination, Origin), trade,
+                   cluster = ~Origin+Destination)
+
+res_list = summary(.l(res))
+
+names(res) = c('Model 1','Model 2','Model 3','Model 4')
+
+cm <- c('log(dist_km)' = 'Log(Dist)')
+
+table = modelsummary(res,
+                     fmt = "%.3f",
+                     estimate="{estimate}{stars}",
+                     statistic = "({std.error})",
+                     coef_map = cm,
+                     #add_rows = rows,
+                     stars =  c('*' = .1, '**' = .05,'***' = 0.01),
+                     gof_omit = 'dat$|Std. Errors|N|FE|Deviance|R2|AIC|BIC|Log.Lik',
+                     output='data.frame') %>%
+  dplyr::filter(part != 'gof') %>%
+  dplyr::select(-part,-statistic) %>%
+  dplyr::mutate(
+    term = dplyr::case_when(
+      (stringr::str_detect(`Model 1`,pattern='\\(')+0) == 1 ~ '',
+      (stringr::str_detect(`Model 2`,pattern='\\[')+0) == 1 ~ '',
+      TRUE ~ term)
+    
+  ) 
+
+knitr::kable(table, format = "latex", booktabs = TRUE)
+
+```
+
+```{r,echo=FALSE}
+
+
+## We combine Panels
+
+table_comb = rbind(table,table)
+
+knitr::kable(table_comb,linesep = c("",
+  "\\textbf{Panel A.} Panel A \\\\
+  \\\\[-7pt]","",""),booktabs = TRUE)
+
+# knitr::kables(
+#   list(kable(table,booktabs = TRUE),
+#        kable(table,booktabs = TRUE,col.names = c('','','','',''))
+#   )
+# )#,format = "latex", booktabs = TRUE)
+```
 
 # Conclusion {#conclusion}
 
 # References {-}
 
 <div id="refs_main"></div>
-
-<!-- <div class="multi-refs"></div> -->
 
 
 \newpage
@@ -108,7 +211,4 @@ This will be Appendix B.
 
 <div id="refs_appendix"></div>
 
-<!-- \printbibliography -->
-
-<!-- <div id="refs"></div> -->
 
